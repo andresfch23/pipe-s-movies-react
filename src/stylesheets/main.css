@@ -917,6 +917,149 @@ body {
       vertical-align: middle;
       margin: 0 3px; }
 
+.main {
+  background-repeat: no-repeat;
+  height: calc(100vh - 69px);
+  width: 100%;
+  display: flex; }
+  .main__left-menu {
+    order: 1;
+    background-color: rgba(16, 16, 16, 0.76);
+    width: 20%;
+    height: calc(100vh - 69px);
+    overflow: scroll;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    text-align: center; }
+    @media screen and (max-width: 900px) {
+      .main__left-menu {
+        position: fixed;
+        top: 69px;
+        left: 0;
+        width: 146px; } }
+    .main__left-menu-image {
+      width: 50%;
+      height: auto;
+      cursor: pointer;
+      border: 2px solid transparent; }
+      .main__left-menu-image:hover {
+        border: 2px solid #58A5FF; }
+    .main__left-menu-movie {
+      margin: 20px 0;
+      width: 100%;
+      font-size: 18px; }
+    .main__left-menu-title {
+      margin: 2px;
+      margin-top: 10px;
+      font-size: 18px;
+      color: #FFFFFF; }
+    .main__left-menu-text {
+      font-size: 15px; }
+  .main__left-select {
+    background-color: #000000;
+    color: #FFFFFF;
+    margin-top: 20px;
+    font-size: 15px; }
+  .main__info {
+    width: 100%;
+    overflow: scroll;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    order: 2;
+    margin: 0; }
+  .main__video {
+    display: block;
+    margin: 40px auto;
+    width: 55%; }
+    @media screen and (max-width: 700px) {
+      .main__video {
+        width: 359px; } }
+  .main__description {
+    background-color: rgba(16, 16, 16, 0.76);
+    margin: 0 50px;
+    border-radius: 20px; }
+    @media screen and (max-width: 700px) {
+      .main__description {
+        margin: 0 20px; } }
+    .main__description-container {
+      display: flex;
+      justify-content: space-between;
+      padding-top: 20px; }
+    .main__description-button {
+      background-color: #58A5FF;
+      align-self: center;
+      margin-right: 22px;
+      color: #FFFFFF;
+      font-size: 15px;
+      border: none;
+      padding: 6px 45px;
+      border-radius: 6px;
+      cursor: pointer; }
+      .main__description-button--add {
+        background-color: #fb2e01; }
+    .main__description-title {
+      font-size: 25px;
+      color: #58A5FF;
+      margin-top: 0;
+      margin-bottom: 0;
+      margin-left: 22px; }
+    .main__description-text {
+      padding-left: 22px;
+      padding-right: 22px;
+      padding-top: 20px;
+      color: #AAAAAA; }
+    .main__description-similar {
+      padding-left: 22px;
+      color: #58A5FF;
+      font-size: 18px;
+      font-weight: bold; }
+  .main__gallery {
+    font-size: 0;
+    padding-bottom: 15px;
+    margin-bottom: 30px;
+    padding-left: 30px; }
+    .main__gallery-text {
+      font-size: 14px; }
+    .main__gallery-title {
+      margin-bottom: -5px;
+      color: #FFFFFF;
+      font-size: 15px; }
+      @media screen and (max-width: 580px) {
+        .main__gallery-title {
+          margin-bottom: 10px;
+          font-size: 18px; } }
+    .main__gallery-image {
+      width: 30%;
+      height: auto; }
+      @media screen and (min-width: 580px) and (max-width: 1000px) {
+        .main__gallery-image {
+          width: 35%; } }
+    .main__gallery-container {
+      display: flex;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+      width: 100%; }
+      @media screen and (min-width: 580px) and (max-width: 1000px) {
+        .main__gallery-container {
+          margin-bottom: 0; } }
+    .main__gallery-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 17px; }
+      @media screen and (min-width: 580px) and (max-width: 1000px) {
+        .main__gallery-item {
+          width: 50%;
+          margin-bottom: 20px; } }
+      @media screen and (max-width: 580px) {
+        .main__gallery-item {
+          width: 100%;
+          margin-bottom: 40px; } }
+    .main__gallery-info {
+      padding-left: 20px; }
+      @media screen and (max-width: 580px) {
+        .main__gallery-info {
+          padding-left: 70px; } }
+
 .vertical-center--inline:before {
   content: "";
   display: inline-block;
