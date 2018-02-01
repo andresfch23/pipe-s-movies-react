@@ -7,12 +7,14 @@ class Header extends Component {
     render() {
         return (
         <header className="navbar">
-            <a href="" className="navbar__button js-navbar-button">
+            <a href="" className="navbar__button">
                 <span className="navbar__line"></span>
                 <span className="navbar__line"></span>
                 <span className="navbar__line"></span>
             </a>
-            <a href="" className="navbar__title-link"><h1 className="navbar__title">Pipe's <span className="navbar__title--orange">Movies</span></h1></a>    
+            <a href="" className="navbar__title-link">
+                <h1 className="navbar__title">Pipe's <span className="navbar__title--orange">Movies</span></h1>
+            </a>    
             <div className="navbar__icon-container">
                 <a href=""><span className="navbar__icon navbar__icon--ticket"></span></a>
                 <a href=""><span className="navbar__icon navbar__icon--movie"></span></a>
