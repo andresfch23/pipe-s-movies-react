@@ -6,8 +6,8 @@ class AsideMovie extends Component {
         return(
             <div className="main__left-menu-movie">
                 <img src={ImageIt} className="main__left-menu-image" alt="Poster of 'It'"></img>
-                <h4 className="main__left-menu-title">It</h4>
-                <span className="main__left-menu-text">2017</span>
+                <h4 className="main__left-menu-title">{this.props.movie.title}</h4>
+                <span className="main__left-menu-text">{this.props.movie.release}</span>
             </div>
         );
     }

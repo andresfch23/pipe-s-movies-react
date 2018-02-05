@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Iframe from 'react-iframe';
 import MainDescription from './Main-description.js';
 
-
 class InfoMovie extends Component {
   render() {
     return (
