@@ -8,30 +8,37 @@ import { requestFirstGenre } from '../requests/moviesDB';
 class MainSection extends Component {
     constructor(props) {
         super(props);
+        this.state = {
+            genresMovies: [],
+        };
     }
 
     componentDidMount() {
-        const data = requestGetGenresMovies().then(({ data: genres }) => {
-            console.log(genres, 'aqui estan los generos');
+       
+        requestGetGenresMovies().then(({ data: { genres } }) => {
+            this.setState({
+                genresMovies: genres,
+            });
         });
 
-        const first = requestFirstGenre().then(({ data: results }) => {
+        requestFirstGenre().then(({ data: results }) => {
             console.log(results, 'titulos de peliculas');
         });
 
-        const similar = requestSimilarMovies().then(({ data: movies }) => {
+        requestSimilarMovies().then(({ data: movies }) => {
             console.log(movies, 'peliculas similares');
         });
 
-        const trailer = requestTrailerMovies().then(({ data: video }) => {
+        requestTrailerMovies().then(({ data: video }) => {
             console.log(video, 'trailers de peliculas');
         });
     }
 
     render() {
+        console.log(this.state, "bella ciao");
        return (
         <section className="main" style={{ backgroundImage: `url(${BackgroundImage})`}}> 
-            <AsideMenu />
+            <AsideMenu genres={this.state.genresMovies} />
             <InfoMovie />
         </section>
        );
