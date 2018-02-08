@@ -6,9 +6,9 @@ const requestGetGenresMovies = () => {
         .get(`genre/movie/list?api_key=${key}&language=en-US`);
 };
 
-const requestFirstGenre = () => {
+const requestMoviesList = (genreId) => {
     return moviesDB
-        .get(`genre/28/movies?api_key=${key}&language=en-US&include_adult=false&sort_by=created_at.asc`);
+        .get(`genre/${genreId}/movies?api_key=${key}&language=en-US&include_adult=false&sort_by=created_at.asc`);
 };
 
 const requestSimilarMovies = () => {
@@ -23,7 +23,7 @@ const requestTrailerMovies = () => {
 
 export {
     requestGetGenresMovies,
-    requestFirstGenre,
+    requestMoviesList,
     requestSimilarMovies,
     requestTrailerMovies,
 };
