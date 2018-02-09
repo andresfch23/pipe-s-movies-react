@@ -16,7 +16,9 @@ class MainSection extends Component {
         this.state = {
             genresMovies: [],
             asideMovieList: [],
+            selectedGenreId: '',
         }
+        this.getMovies = this.getMovies.bind(this);
     }
 
     componentDidMount() {
@@ -25,22 +27,29 @@ class MainSection extends Component {
             this.setState({
                 genresMovies: genres,
             });
-            requestMoviesList(firstGenreId).then(({data: { results: movies } }) => {
-                console.log(movies);
-                this.setState({
-                    asideMovieList: movies,
-                });
+            this.getMovies(firstGenreId);
+        });
+    }
+
+    getMovies(genreId) {
+        requestMoviesList(genreId).then(({data: { results: movies } }) => {
+            console.log(movies);
+            this.setState({
+                asideMovieList: movies,
+                selectedGenreId: genreId,
             });
         });
     }
 
     render() {
-        const { genresMovies, asideMovieList } = this.state;
+        const { genresMovies, asideMovieList, selectedGenreId } = this.state;
        return (
         <section className="main" style={{ backgroundImage: `url(${BackgroundImage})`}}> 
             <AsideMenu
                 genres={genresMovies}
                 moviesList={asideMovieList}
+                onGetMovies={this.getMovies}
+                selectedGenreId={selectedGenreId}
             />
             <InfoMovie />
         </section>
