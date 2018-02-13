@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-import BackgroundImage from '../images/it.jpg';
 import AsideMenu from './Aside-menu.js';
 import InfoMovie from './Info-movie.js';
 import {
     requestGetGenresMovies,
     requestSimilarMovies,
-    requestTrailerMovies,
-    requestMoviesList
+    requestInfoMovie,
+    requestMoviesList,
 } from '../requests/moviesDB';
 
 
@@ -17,8 +16,13 @@ class MainSection extends Component {
             genresMovies: [],
             asideMovieList: [],
             selectedGenreId: '',
+            selectedMovieId: '',
+            infoMovie: {},
+            similarMovies: [],
         }
         this.getMovies = this.getMovies.bind(this);
+        this.getInfoMovie = this.getInfoMovie.bind(this);
+        this.getSimilarMovies = this.getSimilarMovies.bind(this);
     }
 
     componentDidMount() {
@@ -34,24 +38,47 @@ class MainSection extends Component {
     getMovies(genreId) {
         requestMoviesList(genreId).then(({data: { results: movies } }) => {
             console.log(movies);
+            const firstMovieId = movies[0].id;
             this.setState({
                 asideMovieList: movies,
                 selectedGenreId: genreId,
+                selectedMovieId: firstMovieId,
+            });
+            this.getInfoMovie(firstMovieId);
+        });
+    }
+
+    getInfoMovie(idMovie) {
+        requestInfoMovie(idMovie).then(({data}) => {
+            console.log(data);
+            this.setState({
+                infoMovie: data,
+            });
+            this.getSimilarMovies(idMovie);
+        });
+    }
+
+    getSimilarMovies(idMovie) {
+        requestSimilarMovies(idMovie).then(({data: { results } }) => {
+            console.log(results);
+            this.setState({
+                similarMovies: results,
             });
         });
     }
 
     render() {
-        const { genresMovies, asideMovieList, selectedGenreId } = this.state;
+        const { genresMovies, asideMovieList, selectedGenreId, infoMovie, similarMovies } = this.state;
        return (
-        <section className="main" style={{ backgroundImage: `url(${BackgroundImage})`}}> 
+        <section className="main" style={{ backgroundImage: `url('http://image.tmdb.org/t/p/w1920${infoMovie.backdrop_path}')`}}> 
             <AsideMenu
                 genres={genresMovies}
                 moviesList={asideMovieList}
                 onGetMovies={this.getMovies}
                 selectedGenreId={selectedGenreId}
+                onGetInfoMovie={this.getInfoMovie}
             />
-            <InfoMovie />
+            <InfoMovie infoMovie={infoMovie} similarMovies={similarMovies} />
         </section>
        );
     }

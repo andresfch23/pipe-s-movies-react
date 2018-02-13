@@ -6,26 +6,9 @@ class MainInformation extends Component {
     return (
       <div className="main__gallery">
         <div className="grid main__gallery-container">
-            <MovieGallery />
-            <MovieGallery />
-            <MovieGallery />
-            <MovieGallery />
-            <MovieGallery />
-            <MovieGallery />
-            <MovieGallery />
-            <MovieGallery />
-            <MovieGallery />
-            <MovieGallery />
-            <MovieGallery />
-            <MovieGallery />
-            <MovieGallery />
-            <MovieGallery />
-            <MovieGallery />
-            <MovieGallery />
-            <MovieGallery />
-            <MovieGallery />
-            <MovieGallery />
-            <MovieGallery />
+            {this.props.similarMovies.map((similarMovie) => {
+                return <MovieGallery similarMovie={similarMovie} key={similarMovie.id}/>
+            })}
         </div>
       </div>
     );

@@ -21,7 +21,7 @@ class AsideMenu extends Component {
                         return <option value={genre.id} key={genre.id}>{genre.name}</option>
                     })}
                 </select>
-                <AsideListMovies moviesList={this.props.moviesList}/>   
+                <AsideListMovies onGetInfoMovie={this.props.onGetInfoMovie} moviesList={this.props.moviesList}/>   
             </div>
         );
     }
