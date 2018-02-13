@@ -11,19 +11,19 @@ const requestMoviesList = (genreId) => {
         .get(`genre/${genreId}/movies?api_key=${key}&language=en-US&include_adult=false&sort_by=created_at.asc`);
 };
 
-const requestSimilarMovies = () => {
+const requestSimilarMovies = (idMovie) => {
     return moviesDB
-        .get(`movie/198663/similar?api_key=${key}&language=en-US&page=1`);
+        .get(`movie/${idMovie}/similar?api_key=${key}&language=en-US&page=1`);
 };
 
-const requestTrailerMovies = () => {
+const requestInfoMovie = (idMovie) => {
     return moviesDB
-    .get(`movie/198663?api_key=${key}&append_to_response=videos`)
+    .get(`movie/${idMovie}?api_key=${key}&append_to_response=videos`)
 };
 
 export {
     requestGetGenresMovies,
     requestMoviesList,
     requestSimilarMovies,
-    requestTrailerMovies,
+    requestInfoMovie,
 };

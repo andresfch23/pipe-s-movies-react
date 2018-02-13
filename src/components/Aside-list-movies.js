@@ -6,7 +6,7 @@ class AsideListMovies extends Component {
         return(
             <div className="main__left-menu-container">
                 {this.props.moviesList.map((movie) => {
-                    return <AsideMovie movie={movie} key={movie.id}/>
+                    return <AsideMovie movie={movie} key={movie.id} onGetInfoMovie={this.props.onGetInfoMovie}/>
                 })}
             </div>
         );

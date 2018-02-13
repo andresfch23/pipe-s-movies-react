@@ -4,18 +4,17 @@ import MainGallery from './Main-gallery.js';
 
 class MainDescription extends Component {
   render() {
-    return (
+      const {overview, title} = this.props.infoMovie;
+    return(
         <div className="main__description">
             <div className="main__description-container">
-                <h2 className="main__description-title">It</h2>
+                <h2 className="main__description-title">{title}</h2>
                 <button type="button" className="main__description-button" >ADD TO FAVORITES</button>
             </div>
-            <p className="main__description-text"></p>
+            <p className="main__description-text">{overview}</p>
             <h3 className="main__description-similar">Similar movies</h3>
 
-            <MainGallery />
-            
-            
+            <MainGallery similarMovies={this.props.similarMovies} />
         </div>
     );
   }
